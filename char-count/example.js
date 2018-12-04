@@ -1,22 +1,36 @@
 
+ 
 function fun() {
-   var x = document.getElementById("name").value;
-   document.getElementById("exa").innerHTML = x;
-   var y = x.length;
-   document.getElementById("count").innerHTML = y;
-   document.getElementById("occurance").innerHTML ='No of a Occur'+':'+""+countOccurrence ('a');
-   document.getElementById("occur").innerHTML ='No of c Occur'+':'+""+countOccurrence ('c');
-   document.getElementById("occur1").innerHTML ='No of d Occur'+':'+""+countOccurrence ('d');
-   document.getElementById("occur2").innerHTML ='No of b Occur'+':'+""+countOccurrence ('b');
-   document.getElementById("occur3").innerHTML ='No of r Occur'+':'+""+countOccurrence ('r');
-  
-function countOccurrence (char) {
- var count = 0;
- for(var i=0; i<x.length; i++) {
- 	if(x[i] === char) {
-   	count++;
-   }
+
+
+var str = document.getElementById("name").value;
+var y = str.length;
+document.getElementById("length").innerHTML ='Given Sting Length is '+':'+""+ y;
+var letters = new Object;
+var finalletters = new Object;
+//loop, figure it out
+for(x = 0, length = str.length; x < length; x++) {
+	var l = str.charAt(x);
+  if(isNaN(letters[l]) ) {
+    letters[l] = 1;
+
+    finalletters[l] = str[x];
+  }
+  else
+  {
+    letters[l] = letters[l] + 1;
+  }
+
+}
+
+
+//output count!
+var out = "";
+document.getElementById("repeat").innerHTML = 'Repeated Characters in Given String Are '+':';
+for(key in finalletters) {
+	   out =letters[key];
+
+ document.getElementById("repeat").innerHTML +=  ""+key+ ' = ' + out + ", ";
+}
+
  }
- return count;
-}
-}
